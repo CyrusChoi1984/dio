@@ -12,7 +12,7 @@ pubspec.lock
 doc/api/
 .cookies/
 
-dio/.packages
+.packages
 dio/.dart_tool/
 dio/.pub/
 dio/.idea/

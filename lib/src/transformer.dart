@@ -42,7 +42,9 @@ abstract class Transformer {
       map,
       (key, value) {
         if (value == null) return key;
-        return '$key=${Uri.encodeQueryComponent(value.toString())}';
+        Encoding? utf8 = Encoding.getByName("utf-8");
+        print('encodeMap: $key=${Uri.encodeQueryComponent(value.toString(),encoding: utf8!)}');
+        return '$key=${Uri.encodeQueryComponent(value.toString(),encoding: utf8!)}';
       },
       listFormat: listFormat,
     );
