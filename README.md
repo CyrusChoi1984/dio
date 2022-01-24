@@ -257,7 +257,6 @@ Future<Response> download(...)
 Future<Response> fetch(RequestOptions)
 ```
 
-
 ## Request Options
 
 The Options class describes the http request information and configuration. Each Dio instance has a base config for all requests maked by itself, and we can override the base config with [Options] when make a single request.  The  [BaseOptions] declaration as follows:
@@ -404,9 +403,9 @@ class CustomInterceptors extends Interceptor {
     return super.onRequest(options, handler);
   }
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
+  Future onResponse(Response response, ResponseInterceptorHandler handler) {
     print('RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
-    super.onResponse(response, handler);
+    return super.onResponse(response, handler);
   }
   @override
   Future onError(DioError err, ErrorInterceptorHandler handler) {
